@@ -1,1 +1,61 @@
-<h1>Kenneth Leonel Cortez</h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("partials/head") %>
+
+<body>
+    <img src="/images/site/small_check.jpg" alt="checknerboard pattern" class="bg-pattern">
+    <%- include("partials/header") %>
+    <%- include("partials/navigation") %>
+
+    <main>
+        <section class="home-hero">
+            <h1>Welcome to CSE motors!</h1>
+            <figure class="hero">
+                <img src ="/images/vehicles/delorean.jpg" alt="DeLorean">
+                <figcaption class="overlay-text">
+                    <h2>DMC Delorean</h2>
+                    <p>3 cup holders superman doors Fuzzy dice</p>
+                    <a href="/" class="own-today">Own today</a>
+                </figcaption>
+            </figure>
+        </section>
+        <div class="content-wrapper">
+            <section class="reviews">
+                <h2>DMC Delorean Reviews</h2>
+                <ul>
+                    <li>"So fast it's almost like traveling in time." (4/5)</li>
+                    <li>"Coolest ride on the road." (4/5)</li>
+                    <li>"I'm feeling McFly!" (5/5)</li>
+                    <li>"The most futuristic ride of our day." (4.5/5)</li>
+                    <li>"80' living and I love it!" (5/5)</li>
+                </ul>
+            </section>
+            <section class="upgrades">
+                <h2>Delorean Upgrades</h2>
+                <ul>
+                    <li>
+                        <img src="/images/upgrades/flux-cap.png" alt="Flux Capacitor">
+                        Flux Capacitor
+                    </li>
+                    <li>
+                        <img src="/images/upgrades/flame.jpg" alt="Flame Decals">
+                        Flame Decals
+                    </li>
+                    <li>
+                        <img src="/images/upgrades/bumper_sticker.jpg" alt="Bumper Stickers">
+                        Bumper Stickers
+                    </li>
+                    <li>
+                        <img src="/images/upgrades/hub-cap.jpg" alt="Hub Caps">
+                        Hub Caps
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <%- include("partials/footer") %>
+
+</body>
+</html>
