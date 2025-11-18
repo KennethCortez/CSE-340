@@ -10,6 +10,7 @@ const expressLayouts = require("express-ejs-layouts")
 const env = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
+const baseController = require("./controllers/baseController")
 
 /* ***********************
  * Routes
@@ -18,9 +19,7 @@ const static = require("./routes/static")
 app.use(static)
 
 //Index Route
-app.get("/", function (req, res) {
-  res.render("index", {title: "Home"})
-})
+app.get("/", baseController.buildHome)
 
 /* ***********************
  * View engines and templates
