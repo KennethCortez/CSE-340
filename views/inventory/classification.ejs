@@ -1,9 +1,17 @@
-<% if (title) { %>
-<h1><%= title %></h1>
-<% } else {
-    res.redirect('/')
-} %>
+<%- include("../partials/head") %>
+<%- include("../partials/header") %>
+<%- include("../partials/navigation") %>
+<body>
+    <img src="/images/site/small_check.jpg" alt="checknerboard pattern" class="bg-pattern">
 
-<%# messages() %>
+    <main class="classification-wrapper">
 
-<%- grid %>
+        <h1><%= title %></h1>
+
+        <section class="classification-grid">
+            <%- grid %>
+        </section>
+
+    </main>
+</body>
+<%- include("../partials/footer") %>

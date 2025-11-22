@@ -272,3 +272,67 @@ footer {
   pointer-events: none;
 }
 }
+
+/* Wrapper general */
+.classification-wrapper {
+    padding: 2rem;
+}
+
+/* Grid */
+#inv-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+}
+
+#inv-display li {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    transition: transform .2s ease-in-out;
+}
+
+#inv-display li:hover {
+    transform: scale(1.03);
+}
+
+/* Images */
+#inv-display img {
+    width: 100%;
+    border-radius: 10px;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.namePrice {
+    margin-top: .8rem;
+    text-align: center;
+}
+
+.namePrice h2 {
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+    font-family: var(--title-font);
+}
+
+.namePrice a{
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.namePrice span {
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: var(--text-font);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: var(--title-font);
+}
+  
