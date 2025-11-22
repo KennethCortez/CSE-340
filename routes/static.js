@@ -1,6 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const errorController = require("../controllers/errorController")
+const utilities = require("../utilities/")
 
+router.get("/cause-error", utilities.handleErrors(errorController.causeError))
 // Static Routes
 // Set up "public" folder / subfolders for static files
 router.use(express.static("public"));

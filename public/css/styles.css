@@ -335,4 +335,41 @@ h1 {
     margin-bottom: 2rem;
     font-family: var(--title-font);
 }
-  
+
+#vehicle-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+#vehicle-detail img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+#vehicle-detail .info h2 {
+  font-size: 1.8rem;
+  font-family: var(--title-font);
+  color: var(--primary-color);
+}
+
+#vehicle-detail h3 {
+  font-size: 1.6rem;
+  margin: 1rem 0;
+  font-family: var(--title-font);
+}
+
+#vehicle-detail p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-family: var(--text-font);
+}
+
+@media (max-width: 768px) {
+  #vehicle-detail {
+    grid-template-columns: 1fr; /* stack */
+  }
+}
