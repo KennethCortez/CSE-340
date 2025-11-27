@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<%- include("../partials/head") %>
+<%- include("../partials/header") %>
+<%- include("../partials/navigation") %>
+<body>
+    <img src="/images/site/small_check.jpg" alt="checknerboard pattern" class="bg-pattern">
+
+    <main>
+        <h1><%= title %></h1>
+
+        <form class="loginForm" action="/account/login" method="post">
+            <label for="clientEmail">Email Address</label><br>
+            <input type="email" name="account_email" id="account_email" required><br><br>
+
+            <label for="clientPassword">Password</label><br>
+            <input type="password" name="account_password" id="account_password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"><br><br>
+            <span>Password must contain: 
+                -12 characters. 
+                -1 uppercase letter. 
+                -1 number. 
+                -1 special character
+            </span><br><br>
+
+            <button type="submit" class="btn">Login</button>
+            <input type="hidden" name="action" value="login">
+
+            <p>No account? <a href="/account/register">Register here</a></p>
+
+        </form>
+        <% if (message) { %>
+            <div class="flash"><%= message %></div>
+        <% } %>
+    </main>
+</body>
+<%- include("../partials/footer") %>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<%- include("../partials/head") %>
+<%- include("../partials/header") %>
+<%- include("../partials/navigation") %>
+<body>
+    <img src="/images/site/small_check.jpg" alt="checknerboard pattern" class="bg-pattern">
+
+    <main>
+        <h1><%= title %></h1>
+
+        <form class="registerForm" action="/account/register" method="post">
+            <label for="clientFirstname">First Name</label><br>
+            <input type="text" name="account_firstname" id="account_firstname" required><br><br>
+
+            <label for="clientLastname">Last Name</label><br>
+            <input type="text" name="account_lastname" id="account_lastname" required><br><br>
+
+            <label for="clientEmail">Email Address</label><br>
+            <input type="email" name="account_email" id="account_email" required><br><br>
+
+            <label for="clientPassword">Password</label><br>
+            <input type="password" name="account_password" id="account_password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"><br><br>
+            <span>Password must contain: 
+                -12 characters. 
+                -1 uppercase letter. 
+                -1 number. 
+                -1 special character
+            </span><br><br>
+
+            <button type="submit" class="btn">Register</button>
+            <input type="hidden" name="action" value="register">
+
+            <p>Already have an account? <a href="/account/login">Login here</a></p>
+        </form>
+        <% if (errors) { %>
+                <ul class="notice">
+            <% errors.array().forEach(error => { %>
+                <li><%= error.msg %></li>
+        <%  }) %>
+            </ul>
+        <% } %>
+    </main>
+</body>
+<%- include("../partials/footer") %>
+</html>
