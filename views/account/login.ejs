@@ -10,9 +10,17 @@
     <main>
         <h1><%= title %></h1>
 
+        <% if (errors) { %>
+        <ul class="notice">
+        <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+        <%  }) %>
+        </ul>
+        <% } %>
+
         <form class="loginForm" action="/account/login" method="post">
             <label for="clientEmail">Email Address</label><br>
-            <input type="email" name="account_email" id="account_email" required><br><br>
+            <input type="email" name="account_email" id="account_email" required value="<%= locals.account_email %>"><br><br>
 
             <label for="clientPassword">Password</label><br>
             <input type="password" name="account_password" id="account_password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"><br><br>
@@ -29,9 +37,6 @@
             <p>No account? <a href="/account/register">Register here</a></p>
 
         </form>
-        <% if (message) { %>
-            <div class="flash"><%= message %></div>
-        <% } %>
     </main>
 </body>
 <%- include("../partials/footer") %>
