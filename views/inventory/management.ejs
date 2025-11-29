@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../partials/head") %>
+<%- include("../partials/header") %>
+<%- include("../partials/navigation") %>
+
+<body>
+    <img src="/images/site/small_check.jpg" alt="checknerboard pattern" class="bg-pattern">
+
+    <main class="management-container">
+        <h1><%= title %></h1>
+        
+        <% if (message && message.length) { %>
+        <div class="notice"><%= message %></div>
+        <% } %>
+
+        <% if (errors && errors.length > 0) { %>
+        <div class="error-list">
+            <ul>
+            <% errors.forEach(err => { %>
+                <li><%= err.msg %></li>
+            <% }) %>
+            </ul>
+        </div>
+        <% } %>
+
+        <section class="management-links">
+            <h2>What would you like to do?</h2>
+
+            <ul>
+                <li>
+                    <a href="/inv/new/classification">Add New Classification</a>
+                </li>
+                <li>
+                    <a href="/inv/new/inventory">Add New Inventory Item</a>
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+<%- include("../partials/footer") %>
+
+</html>
