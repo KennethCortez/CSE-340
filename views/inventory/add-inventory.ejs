@@ -60,11 +60,11 @@
 
                 <label for="inv_image">Image Path</label>
                 <input type="text" id="inv_image" name="inv_image" required maxlength="255"
-                    value="<%= typeof inv_image !== 'undefined' ? inv_image : '/images/no-image-available.png' %>" />
+                    value="<%= typeof inv_image !== 'undefined' ? inv_image : '/images/vehicles/no-image.png' %>" />
 
                 <label for="inv_thumbnail">Thumbnail Path</label>
                 <input type="text" id="inv_thumbnail" name="inv_thumbnail" required maxlength="255"
-                    value="<%= typeof inv_thumbnail !== 'undefined' ? inv_thumbnail : '/images/no-image-available-thumb.png' %>" />
+                    value="<%= typeof inv_thumbnail !== 'undefined' ? inv_thumbnail : '/images/vehicles/no-image-tn.png' %>" />
 
                 <label for="inv_description">Description</label>
                 <textarea id="inv_description" name="inv_description" required maxlength="2000"><%= typeof inv_description !== 'undefined' ? inv_description : '' %></textarea>

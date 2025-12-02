@@ -44,16 +44,11 @@ invCont.buildByDetailView = async function (req, res, next) {
 invCont.buildManagementView = async function (req, res, next) {
     let nav = await utilities.getNav()
     
-    let message = null
-    if (req.flash) {
-        message = req.flash("notice", 'Sorry, there was an error processing the task.')
-    }
-
     res.render("./inventory/management", {
-        title: "Inventory Management",
-        nav,
-        message,
-        errors: null,
+    title: "Inventory Management",
+    nav,
+    message: req.flash("notice"),
+    errors: null
     })
 }
 
@@ -76,25 +71,20 @@ invCont.buildAddClassification = async function (req, res, next) {
  * ************************** */
 invCont.addClassification = async function (req, res, next) {
     const { classification_name } = req.body
-    let nav = await utilities.getNav()
 
-    // Insert the data into the DB
     const result = await invModel.addNewClassification(classification_name)
 
     if (result) {
 
         req.flash("notice", `${classification_name} was added correctly.`)
-        nav = await utilities.getNav()
 
-        return res.render("./inventory/management", {
-            title: "Inventory Management",
-            nav,
-            errors: null,
-            message: req.flash("notice")
-        })
-    } else {
+        return res.redirect("/inv")
+    } 
+    else {
 
-        req.flash("notice", "We really sorry, it was not possible to add the new classification.")
+        req.flash("notice", "We are sorry, it was not possible to add the new classification.")
+
+        let nav = await utilities.getNav()
 
         return res.render("./inventory/add-classification", {
             title: "Add New Classification",
@@ -128,8 +118,8 @@ res.render("./inventory/add-inventory", {
     inv_price: "",
     inv_miles: "",
     inv_color: "",
-    inv_image: "/images/no-image-available.png",
-    inv_thumbnail: "/images/no-image-available-thumb.png"
+    inv_image: "/public/images/vehicles/no-image.png",
+    inv_thumbnail: "/public/images/vehicles/no-image-tn.png"
 })
 }
 
