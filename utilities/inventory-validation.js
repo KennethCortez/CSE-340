@@ -82,14 +82,16 @@ return [
     .withMessage("Price must be a positive number."),
 
     body("inv_miles")
-    .optional({ checkFalsy: true })
     .trim()
-    .isNumeric()
-    .withMessage("Miles must be numeric."),
+    .notEmpty()
+    .withMessage("Please enter vehicle mileage.")
+    .isInt({ min: 0 })
+    .withMessage("Miles must be a positive number."),
 
     body("inv_color")
-    .optional({ checkFalsy: true })
     .trim()
+    .notEmpty()
+    .withMessage("Please enter a color.")
     .isLength({ max: 50 })
     .withMessage("Color is too long."),
 
@@ -98,14 +100,14 @@ return [
     .notEmpty()
     .withMessage("Please provide a path for the image.")
     .isLength({ max: 255 })
-    .withMessage("Image path is too long."),
+    .matches(/^\/images\/vehicles\/[a-zA-Z0-9-_]+\.(png|jpg|jpeg|webp)$/),
 
     body("inv_thumbnail")
     .trim()
     .notEmpty()
     .withMessage("Please provide a path for the thumbnail.")
     .isLength({ max: 255 })
-    .withMessage("Thumbnail path is too long.")
+    .matches(/^\/images\/vehicles\/[a-zA-Z0-9-_]+-tn\.(png|jpg|jpeg|webp)$/),
 ]
 }
 
@@ -131,7 +133,7 @@ const errors = validationResult(req)
 if (!errors.isEmpty()) {
     let nav = await utilities.getNav()
     // rebuild classification select (selected option will be set by the utility)
-    const classificationList = await utilities.buildClassificationList(classification_id)
+    const classificationList = await utilities.buildClassificationList(Number(classification_id))
 
     return res.render("inventory/add-inventory", {
     title: "Add Inventory",

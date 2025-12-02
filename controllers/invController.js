@@ -118,8 +118,8 @@ res.render("./inventory/add-inventory", {
     inv_price: "",
     inv_miles: "",
     inv_color: "",
-    inv_image: "/public/images/vehicles/no-image.png",
-    inv_thumbnail: "/public/images/vehicles/no-image-tn.png"
+    inv_image: "/images/vehicles/no-image.png",
+    inv_thumbnail: "/images/vehicles/no-image-tn.png"
 })
 }
 
