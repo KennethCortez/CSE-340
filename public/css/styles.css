@@ -22,18 +22,19 @@
 main{
   background-color: var(--background-color);
 }
+
 #top-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
   background-color: var(--background-color);
+}
 
-  a {
-    text-decoration: none;
-    color: var(--nav-color);
-    font-family: var(--title-font);
-  }
+#top-header a {
+  text-decoration: none;
+  color: var(--nav-color);
+  font-family: var(--title-font);
 }
 
 .siteName {
@@ -45,26 +46,26 @@ main{
 nav {
   background-color: var(--nav-color);
   padding: 1rem 0;
+}
 
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    align-items: center;
-  }
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
 
-  li {
-    font-size: 1rem;
-  }
+nav li {
+  font-size: 1rem;
+}
 
-  a {
-    color: white;
-    text-decoration: none;
-    font-family: var(--text-font);
-  }
+nav a {
+  color: white;
+  text-decoration: none;
+  font-family: var(--text-font);
 }
 
 .home-hero h1 {
@@ -83,16 +84,16 @@ nav {
   height: 350px;
   overflow: hidden;
   background-color: var(--background-color);
+}
 
-  img {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 50%;
-    width: auto;
-    z-index: 1;
-  }
+.hero img {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 50%;
+  width: auto;
+  z-index: 1;
 }
 
 .overlay-text {
@@ -102,17 +103,17 @@ nav {
   background-color: #ffff;
   background: rgba(255, 255, 255, 0.6);
   color: var(--primary-color);
+}
 
-  h2 {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    font-family: var(--title-font);
-  }
+.overlay-text h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  font-family: var(--title-font);
+}
 
-  p {
-    margin-bottom: 1rem;
-    font-family: var(--text-font);
-  }
+.overlay-text p {
+  margin-bottom: 1rem;
+  font-family: var(--text-font);
 }
 
 .own-today {
@@ -125,53 +126,53 @@ nav {
   font-family: var(--text-font);
 }
 
-.reviews {
-  h2 {
-    padding-left: 1rem;
-    font-family: var(--title-font);
-  }
-
-  ul {
-    padding: 1.5rem;
-    margin: 0;
-    line-height: 1.9;
-    font-family: var(--text-font);
-  }
+/* Reviews */
+.reviews h2 {
+  padding-left: 1rem;
+  font-family: var(--title-font);
 }
 
+.reviews ul {
+  padding: 1.5rem;
+  margin: 0;
+  line-height: 1.9;
+  font-family: var(--text-font);
+}
+
+/* Upgrades */
 .upgrades {
   padding: 1rem;
+}
 
-  h2 {
-    font-family: var(--title-font);
-  }
+.upgrades h2 {
+  font-family: var(--title-font);
+}
 
-  ul {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1rem;
-  }
+.upgrades ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
 
-  li {
-    background: var(--primary-color);
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: justify;
-    display: flex;
-    flex-direction: column;
-    font-family: var(--text-font);
-    align-items: center;
+.upgrades li {
+  background: var(--primary-color);
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--text-font);
+  align-items: center;
+}
 
-    img {
-      width: 50px;
-      height: auto;
-      margin-bottom: 0.5rem;
-      text-align: justify;
-    }
-  }
+.upgrades li img {
+  width: 50px;
+  height: auto;
+  margin-bottom: 0.5rem;
+  text-align: justify;
 }
 
 footer {
@@ -181,9 +182,8 @@ footer {
   background-color: var(--background-color);
 }
 
-
+/* Media Query */
 @media (min-width: 800px) {
-
   main {
     max-width: 1200px;
     margin: 0 auto;
@@ -212,21 +212,21 @@ footer {
   .hero {
     height: 500px;
     padding: 3rem;
+  }
 
-    img {
-      height: 85%;
-      right: 5%;
-    }
+  .hero img {
+    height: 85%;
+    right: 5%;
   }
 
   .overlay-text {
     max-width: 40%;
     padding: 2rem;
     font-size: 1.2rem;
+  }
 
-    h2 {
-      font-size: 2rem;
-    }
+  .overlay-text h2 {
+    font-size: 2rem;
   }
 
   .content-wrapper {
@@ -239,103 +239,104 @@ footer {
   .reviews {
     order: 2;
     flex: 1;
+  }
 
-    ul {
-      padding-left: 2rem;
-    }
+  .reviews ul {
+    padding-left: 2rem;
   }
 
   .upgrades {
     order: 1;
     flex: 1;
+  }
 
-    ul {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  .upgrades ul {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   body {
-  padding-left: 4rem;
-  padding-right: 4rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
 
-.bg-pattern {
-  display: block;
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  pointer-events: none;
-}
+  .bg-pattern {
+    display: block;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+  }
 }
 
 /* Wrapper general */
 .classification-wrapper {
-    padding: 2rem;
+  padding: 2rem;
 }
 
 /* Grid */
 #inv-display {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.5rem;
-    list-style: none;
-    padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
 }
 
 #inv-display li {
-    background: #fff;
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,.1);
-    transition: transform .2s ease-in-out;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  transition: transform .2s ease-in-out;
 }
 
 #inv-display li:hover {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 /* Images */
 #inv-display img {
-    width: 100%;
-    border-radius: 10px;
-    aspect-ratio: 16/9;
-    object-fit: cover;
+  width: 100%;
+  border-radius: 10px;
+  aspect-ratio: 16/9;
+  object-fit: cover;
 }
 
 .namePrice {
-    margin-top: .8rem;
-    text-align: center;
+  margin-top: .8rem;
+  text-align: center;
 }
 
 .namePrice h2 {
-    font-size: 1.2rem;
-    margin-bottom: .5rem;
-    margin-top: .5rem;
-    font-family: var(--title-font);
+  font-size: 1.2rem;
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+  font-family: var(--title-font);
 }
 
-.namePrice a{
-    text-decoration: none;
-    color: var(--primary-color);
+.namePrice a {
+  text-decoration: none;
+  color: var(--primary-color);
 }
 
 .namePrice span {
-    font-size: 1.3rem;
-    font-weight: bold;
-    font-family: var(--text-font);
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-family: var(--text-font);
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 2rem;
-    font-family: var(--title-font);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: var(--title-font);
 }
 
+/* Vehicle detail */
 #vehicle-detail {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -370,61 +371,69 @@ h1 {
 
 @media (max-width: 768px) {
   #vehicle-detail {
-    grid-template-columns: 1fr; /* stack */
+    grid-template-columns: 1fr;
   }
 }
 
+/* Login & Register */
 .loginForm,
 .registerForm {
-    max-width: 500px;
-    margin: 2rem auto;
-    padding: 2rem;
-    border-radius: 8px;
-    background-color: var(--primary-color);
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: var(--primary-color);
 }
 
-.loginForm label, .registerForm label{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: .5rem;
-    font-weight: bold;
-    color: white;
-    font-family: var(--text-font);
-    font-size: 1.1rem;
+.loginForm label,
+.registerForm label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .5rem;
+  font-weight: bold;
+  color: white;
+  font-family: var(--text-font);
+  font-size: 1.1rem;
 }
 
-.loginForm input, .registerForm input {
-    padding: .5rem;
-    margin-top: .3rem;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
+.loginForm input,
+.registerForm input {
+  padding: .5rem;
+  margin-top: .3rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
-.loginForm p, .registerForm p {
-    color: white;
-    margin: 1rem;
-    font-family: var(--text-font);
+.loginForm p,
+.registerForm p {
+  color: white;
+  margin: 1rem;
+  font-family: var(--text-font);
 }
 
-.loginForm a, .registerForm a {
+.loginForm a,
+.registerForm a {
   color: white;
 }
 
-.btn, .action, .submit {
-    display: inline-block;
-    padding: 0.75rem 1.25rem;
-    background-color: var(--background-color);
-    color: var(--nav-color);
-    text-decoration: none;
-    border-radius: 4px;
-    font-family: var(--text-font);
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
+.btn,
+.action,
+.submit {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--background-color);
+  color: var(--nav-color);
+  text-decoration: none;
+  border-radius: 4px;
+  font-family: var(--text-font);
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
 }
 
-.registerForm span, .loginForm span{
+.registerForm span,
+.loginForm span {
   display: block;
   white-space: pre-line;
   color: white;
@@ -432,62 +441,66 @@ h1 {
   line-height: 1.4;
 }
 
+/* Management */
 .management-links {
-    margin-top: 2rem;
-    text-align: center;
+  margin-top: 2rem;
+  text-align: center;
 }
 
 .management-links h2 {
-    font-family: var(--title-font);
-    margin-bottom: 1rem;
+  font-family: var(--title-font);
+  margin-bottom: 1rem;
 }
 
-.management-links a, .management-links ul { 
-    text-decoration: none;
-    color: var(--primary-color);
-    font-family: var(--text-font);
+.management-links a,
+.management-links ul {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-family: var(--text-font);
 }
 
+/* Forms */
 .form-container {
-    max-width: 500px;
-    margin: 2rem auto;
-    padding: 2rem;
-    border-radius: 8px;
-    background-color: var(--primary-color);
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: var(--primary-color);
+  border: 2px solid #000;
 }
 
-.form-container label{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: .5rem;
-    font-weight: bold;
-    color: white;
-    font-family: var(--text-font);
-    font-size: 1.1rem;
+.form-container label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: .5rem;
+  font-weight: bold;
+  color: white;
+  font-family: var(--text-font);
+  font-size: 1.1rem;
 }
 
-.form-container input{
-    padding: .5rem;
-    margin-top: .3rem;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
+.form-container input {
+  padding: .5rem;
+  margin-top: .3rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
-.form-container p{
-    color: white;
-    margin: 1rem;
-    font-family: var(--text-font);
+.form-container p {
+  color: white;
+  margin: 1rem;
+  font-family: var(--text-font);
 }
 
-.form-container a{
+.form-container a {
   color: white;
 }
 
 .form-container legend {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 1rem;
-    font-family: var(--title-font);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1rem;
+  font-family: var(--title-font);
 }
