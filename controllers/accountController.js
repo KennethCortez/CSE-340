@@ -123,12 +123,27 @@ async function accountLogin(req, res) {
  * *************************************** */
 async function buildAccountManagement(req, res, next) {
     let nav = await utilities.getNav()
+
+    const token = req.cookies.jwt
+    let accountData = null
+
+    if (token) {
+        try {
+            accountData = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
+        } catch (err) {
+            req.flash("notice", "Invalid session. Please log in again.")
+            return res.redirect("/account/login")
+        }
+    }
+
     res.render("account/account-management", {
         title: "Account Management",
         nav,
         errors: null,
+        accountData,   // <--- PASAMOS DATOS A LA VISTA
     })
 }
+
 
 
 module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildAccountManagement };

@@ -119,6 +119,26 @@ Util.checkJWTToken = (req, res, next) => {
 }
 
 /* ****************************************
+ * Check if user is Employee or Admin
+ **************************************** */
+Util.checkEmployeeOrAdmin = (req, res, next) => {
+    if (!res.locals.loggedin) {
+        req.flash("notice", "Please log in to continue.")
+        return res.redirect("/account/login")
+    }
+
+    const type = res.locals.accountData.account_type
+
+    if (type === "Employee" || type === "Admin") {
+        return next()
+    }
+
+    req.flash("notice", "You do not have permission to access this resource.")
+    return res.redirect("/account/login")
+}
+
+
+/* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
  * General Error Handling

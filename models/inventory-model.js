@@ -87,5 +87,10 @@ try {
 }
 }
 
-module.exports = {getClassifications, getInventoryByClassificationId, getVehicleById, addNewClassification, addNewVehicle};
+async function getInventoryById(inv_id) {
+    return await getVehicleById(inv_id)
+}
+
+
+module.exports = {getClassifications, getInventoryByClassificationId, getVehicleById, addNewClassification, addNewVehicle, getInventoryById};
 

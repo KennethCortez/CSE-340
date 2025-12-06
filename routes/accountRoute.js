@@ -25,5 +25,27 @@ router.post(
 
 router.get("/", accountController.buildAccountManagement);
 
+// Deliver Update Account View
+router.get(
+    "/update/:account_id",
+    utilities.handleErrors(accountController.buildUpdateAccount)
+)
+
+// Process Account Update (name, lastname, email)
+router.post(
+    "/update",
+    accountValidate.updateAccountRules(),
+    accountValidate.checkUpdateAccountData,
+    utilities.handleErrors(accountController.updateAccount)
+)
+
+// Process Password Change
+router.post(
+    "/update-password",
+    accountValidate.updatePasswordRules(),
+    accountValidate.checkUpdatePasswordData,
+    utilities.handleErrors(accountController.updatePassword)
+)
+
 
 module.exports = router;    

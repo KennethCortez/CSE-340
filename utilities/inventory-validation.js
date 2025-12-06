@@ -158,4 +158,53 @@ next()
 }
 
 
+
+/* ****************************************
+*  CHECK DATA for EDIT-inventory
+*  Re-render edit-inventory view
+* **************************************** */
+validate.checkUpdateData = async (req, res, next) => {
+    let {
+        classification_id,
+        inv_id,
+        inv_make,
+        inv_model,
+        inv_year,
+        inv_description,
+        inv_price,
+        inv_miles,
+        inv_color,
+        inv_image,
+        inv_thumbnail
+    } = req.body
+
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        let nav = await utilities.getNav()
+        // rebuild classification select (selected option will be set by the utility)
+        const classificationList = await utilities.buildClassificationList(Number(classification_id))
+
+        return res.render("inventory/edit-inventory", {
+        title: "Edit Inventory",
+        nav,
+        classificationList,
+        errors: errors.array(),
+        message: null,
+        // stickiness values
+        classification_id,
+        inv_id,
+        inv_make,
+        inv_model,
+        inv_year,
+        inv_description,
+        inv_price,
+        inv_miles,
+        inv_color,
+        inv_image,
+        inv_thumbnail
+        })
+    }
+    next()
+}
+
 module.exports = validate
