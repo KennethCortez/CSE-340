@@ -51,7 +51,7 @@ invCont.buildManagementView = async function (req, res, next) {
     res.render("./inventory/management", {
     title: "Inventory Management",
     nav,
-    message: req.flash("notice"),
+    messages: req.flash("notice"),
     errors: null,
     classificationList
     })
@@ -282,7 +282,7 @@ if (updateResult) {
     res.status(501).render("inventory/edit-inventory", {
     title: "Edit " + itemName,
     nav,
-    classificationSelect: classificationSelect, // presta atencion kenneth
+    classificationList: classificationSelect, // presta atencion kenneth
     errors: null,
     inv_id,
     inv_make,

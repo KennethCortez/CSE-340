@@ -157,8 +157,6 @@ if (!errors.isEmpty()) {
 next()
 }
 
-
-
 /* ****************************************
 *  CHECK DATA for EDIT-inventory
 *  Re-render edit-inventory view
