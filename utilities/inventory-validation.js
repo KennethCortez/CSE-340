@@ -165,17 +165,17 @@ next()
 * **************************************** */
 validate.checkUpdateData = async (req, res, next) => {
     let {
-        classification_id,
-        inv_id,
         inv_make,
         inv_model,
-        inv_year,
         inv_description,
+        inv_image,
+        inv_thumbnail,
         inv_price,
+        inv_year,
         inv_miles,
         inv_color,
-        inv_image,
-        inv_thumbnail
+        classification_id,
+        inv_id
     } = req.body
 
     const errors = validationResult(req)
@@ -208,3 +208,4 @@ validate.checkUpdateData = async (req, res, next) => {
 }
 
 module.exports = validate
+

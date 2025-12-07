@@ -56,11 +56,13 @@ router.get(
     utilities.handleErrors(invController.editInventoryView)
 )
 // Process the edit inventory form (POST)
-router.post("/edit-inventory",
-    utilities.checkEmployeeOrAdmin, 
-    utilities.handleErrors(
-    invValidate.newInventoryRules(),
+router.post(
+    "/edit-inventory",
+    utilities.checkEmployeeOrAdmin,
+    invValidate.inventoryRules(),
     invValidate.checkUpdateData,
-    invController.updateInventory))
+    utilities.handleErrors(invController.updateInventory)
+)
+
 
 module.exports = router;

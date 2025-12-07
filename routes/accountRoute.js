@@ -34,18 +34,24 @@ router.get(
 // Process Account Update (name, lastname, email)
 router.post(
     "/update",
-    accountValidate.updateAccountRules(),
-    accountValidate.checkUpdateAccountData,
+    regValidate.updateAccountRules(),
+    regValidate.checkUpdateAccountData,
     utilities.handleErrors(accountController.updateAccount)
 )
 
 // Process Password Change
 router.post(
     "/update-password",
-    accountValidate.updatePasswordRules(),
-    accountValidate.checkUpdatePasswordData,
+    regValidate.updatePasswordRules(),
+    regValidate.checkUpdatePasswordData,
     utilities.handleErrors(accountController.updatePassword)
 )
+
+router.get("/logout", (req, res) => {
+    res.clearCookie("jwt")
+    req.flash("notice", "You have been logged out.")
+    res.redirect("/")
+})
 
 
 module.exports = router;    

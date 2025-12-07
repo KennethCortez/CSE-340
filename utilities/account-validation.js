@@ -111,5 +111,65 @@ validate.checkLoginData = async (req, res, next) => {
     next()
 }
 
+validate.updateAccountRules = () => {
+    return [
+        body("account_firstname")
+            .trim()
+            .isLength({ min: 1 })
+            .withMessage("Please provide a first name."),
+        body("account_lastname")
+            .trim()
+            .isLength({ min: 1 })
+            .withMessage("Please provide a last name."),
+        body("account_email")
+            .trim()
+            .isEmail()
+            .withMessage("Please provide a valid email.")
+            .custom(async (email, { req }) => {
+                const existing = await accountModel.getAccountByEmail(email)
+                if (existing && existing.account_id != req.body.account_id) {
+                    throw new Error("Email already exists.")
+                }
+            })
+    ]
+}
+
+validate.updatePasswordRules = () => {
+    return [
+        body("account_password")
+            .trim()
+            .isLength({ min: 12 })
+            .withMessage("Password must be at least 12 characters.")
+    ]
+}
+
+validate.checkUpdateAccountData = async function (req, res, next) {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        req.flash("notice", "Please correct the errors.")
+        return res.render("account/update-account", {
+            title: "Update Account",
+            errors,
+            accountData: req.body,
+            nav: req.nav
+        })
+    }
+    next()
+}
+
+validate.checkUpdatePasswordData = async (req, res, next) => {
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        req.flash("notice", "Please correct the errors.")
+        return res.render("account/update-account", {
+            title: "Update Account",
+            errors,
+            accountData: req.body,
+            nav: req.nav
+        })
+    }
+    next()
+}
+
 module.exports = validate
 
