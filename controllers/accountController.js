@@ -141,6 +141,7 @@ async function buildAccountManagement(req, res, next) {
         nav,
         errors: null,
         accountData,
+        messages: req.flash("notice") || []
     })
 }
 
@@ -148,12 +149,14 @@ async function buildUpdateAccount(req, res) {
     const account_id = parseInt(req.params.account_id)
     let nav = await utilities.getNav()
     const accountData = await accountModel.getAccountById(account_id)
+    const messages = req.flash("notice") || []
 
     res.render("account/update-account", {
         title: "Update Account",
         nav,
         errors: null,
-        accountData
+        accountData,
+        messages
     })
 }
 
@@ -178,7 +181,8 @@ async function updateAccount(req, res) {
         title: "Update Account",
         nav,
         errors: null,
-        accountData: req.body
+        accountData: req.body,
+        messages: req.flash("notice") || []
     })
 }
 
@@ -200,7 +204,8 @@ async function updatePassword(req, res) {
         title: "Update Account",
         nav,
         errors: null,
-        accountData: req.body
+        accountData: req.body,
+        messages: req.flash("notice") || []
     })
 }
 

@@ -26,10 +26,16 @@ router.post(
 router.get("/", accountController.buildAccountManagement);
 
 // Deliver Update Account View
-router.get(
-    "/update/:account_id",
-    utilities.handleErrors(accountController.buildUpdateAccount)
-)
+router.get("/update/:account_id", async (req, res, next) => {
+  try {
+    console.log("Account ID recibido:", req.params.account_id)
+    await accountController.buildUpdateAccount(req, res)
+  } catch (err) {
+    console.error("ERROR REAL:", err)
+    next(err)
+  }
+})
+
 
 // Process Account Update (name, lastname, email)
 router.post(
