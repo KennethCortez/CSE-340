@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<%- include("../partials/head") %>
+<%- include("../partials/header") %>
+<%- include("../partials/navigation") %>
+
+<body>
+    <img src="/images/site/small_check.jpg" alt="checknerboard pattern" class="bg-pattern">
+
+    <main>
+        <h1><%= title %></h1>
+
+        <% if (messages && messages.length > 0) { %>
+            <div class="alert">
+                <% messages.forEach(msg => { %>
+                    <p><%= msg %></p>
+                <% }) %>
+            </div>
+        <% } %>
+
+        <form action="/appointments/new" method="POST" class="form">
+
+            <!-- Brand -->
+            <label for="vehicle_make">Vehicle Make:</label>
+            <input 
+                type="text" 
+                id="vehicle_make" 
+                name="vehicle_make" 
+                placeholder="Ej: Honda, Toyota, Nissan"
+                required
+            >
+
+            <!-- Model -->
+            <label for="vehicle_model">Vehicle Model:</label>
+            <input 
+                type="text" 
+                id="vehicle_model" 
+                name="vehicle_model" 
+                placeholder="Ej: Civic, Corolla, Sentra"
+                required
+            >
+
+            <!-- Date -->
+            <label for="appointment_date">Date:</label>
+            <input 
+                type="date" 
+                id="appointment_date" 
+                name="appointment_date"
+                required
+            >
+
+            <!-- Time -->
+            <label for="appointment_time">Time:</label>
+            <input 
+                type="time" 
+                id="appointment_time" 
+                name="appointment_time"
+                required
+            >
+
+            <!-- Notes -->
+            <label for="notes">Description:</label>
+            <textarea 
+                id="notes" 
+                name="notes"
+                placeholder="appointment details..."
+            ></textarea>
+
+            <button type="submit">Book appointment</button>
+        </form>
+
+    </main>
+</body>
+
+<%- include("../partials/footer") %>
+</html>

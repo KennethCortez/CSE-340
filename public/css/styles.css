@@ -609,7 +609,12 @@ button:hover {
     color: #b91c1c;
 }
 
-
+.form label {
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: block;
+    font-family: var(--text-font);
+}
 /* =========================
     FORM CONTAINERS
 ========================= */

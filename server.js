@@ -18,6 +18,7 @@ const pool = require('./database/')
 const accountRoute = require("./routes/accountRoute")
 const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser")
+const appointmentsRoute = require("./routes/appointmentsRoute")
 
 
 /* ***********************
@@ -64,11 +65,12 @@ app.use("/inv", inventoryRoute)
 
 app.use("/account", accountRoute)
 
+app.use("/appointments", appointmentsRoute)
+
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {
   next({status: 404, message: 'Sorry, we appear to have lost that page.'})
 })
-
 /* ***********************
  * View engines and templates
  *************************/
